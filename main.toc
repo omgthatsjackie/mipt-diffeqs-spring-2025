@@ -1,0 +1,27 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\numberline {1}Автономные системы}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Основные понятия}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Свойства автономных систем}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Автономные системы на плоскости}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Линейные автономные системы}{5}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}$\lambda _1, \lambda _2 \in \mathbb R \setminus \{0\}$, $\lambda _1 \ne \lambda _2$}{5}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}$\lambda _1 = \lambda _2 = \lambda \in \mathbb R$}{7}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}$\lambda _{1, 2} = \alpha \pm \beta i \in \mathbb {C}$, $\beta \neq 0$}{8}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Нелинейные автономные системы}{10}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Теорема о выпрямлении траекторий}{11}{section.3}%
+\contentsline {section}{\numberline {4}Устойчивость по Ляпунову и асимптотическая устойчивость}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Определение и примеры}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Устойчивость линейных систем}{17}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Условия устойчивости}{18}{section.5}%
+\contentsline {section}{\numberline {6}Первые интегралы}{22}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Первые интегралы нормальных ОДУ}{22}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Первые интегралы автономных систем}{24}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Множество всех первых интегралов}{25}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Множество первых интегралов автономных систем}{27}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Линейные однородные уравнения в частных производных}{28}{section.7}%
+\contentsline {section}{\numberline {8}Вариационное исчисление}{30}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Простейшая задача вариационного исчисления}{30}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Задача о брахистохроне}{32}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Задача со свободным концом}{34}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Задача для функционалов, зависящих от нескольких функций}{35}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Функционалы, содержащие производные высших порядков}{36}{subsection.8.5}%
