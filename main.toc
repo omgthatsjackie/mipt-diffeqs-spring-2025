@@ -11,17 +11,17 @@
 \contentsline {section}{\numberline {3}Теорема о выпрямлении траекторий}{11}{section.3}%
 \contentsline {section}{\numberline {4}Устойчивость по Ляпунову и асимптотическая устойчивость}{16}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Определение и примеры}{16}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Устойчивость линейных систем}{17}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Условия устойчивости}{18}{section.5}%
-\contentsline {section}{\numberline {6}Первые интегралы}{22}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Первые интегралы нормальных ОДУ}{22}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Первые интегралы автономных систем}{24}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Множество всех первых интегралов}{25}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Множество первых интегралов автономных систем}{27}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Линейные однородные уравнения в частных производных}{28}{section.7}%
-\contentsline {section}{\numberline {8}Вариационное исчисление}{30}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Простейшая задача вариационного исчисления}{30}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Задача о брахистохроне}{32}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Задача со свободным концом}{34}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Задача для функционалов, зависящих от нескольких функций}{35}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Функционалы, содержащие производные высших порядков}{36}{subsection.8.5}%
+\contentsline {subsection}{\numberline {4.2}Достаточные условия устойчивости}{17}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Устойчивость линейных систем}{17}{subsubsection.4.2.1}%
+\contentsline {section}{\numberline {5}Первые интегралы}{18}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Первые интегралы автономных систем}{18}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Множество всех первых интегралов автономной системы}{20}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Линейные однородные уравнения в частных производных}{22}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Основные понятия}{22}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Задача Коши для ЛДУ в частных производных}{23}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Вариационное исчисление}{26}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Простейшая задача вариационного исчисления}{26}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Задача о брахистохроне}{28}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Задача со свободным концом}{29}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Задача для функционалов, зависящих от нескольких функций}{31}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Функционалы, содержащие производные высших порядков}{32}{subsection.7.5}%

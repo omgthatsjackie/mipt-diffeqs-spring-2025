@@ -1,8 +1,8 @@
-PWD d:/Lectures at MIPT/differential-equations-2/2024_Zhukovskiy
+PWD d:/Lectures at MIPT/mipt-diffeqs-spring-2025
 INPUT d:/texlive/2024/texmf.cnf
 INPUT d:/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT d:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT d:/Lectures at MIPT/differential-equations-2/2024_Zhukovskiy/main.tex
+INPUT d:/Lectures at MIPT/mipt-diffeqs-spring-2025/main.tex
 OUTPUT main.log
 INPUT ./header.tex
 INPUT ./header.tex
@@ -670,6 +670,15 @@ INPUT ./figures/arnold-example.PNG
 INPUT ./figures/arnold-example.PNG
 INPUT ./figures/arnold-example.PNG
 INPUT ./figures/arnold-example.PNG
+INPUT ./sufficient-stability-conditions.tex
+INPUT ./sufficient-stability-conditions.tex
+INPUT sufficient-stability-conditions.tex
+INPUT ./first-integrals.tex
+INPUT ./first-integrals.tex
+INPUT first-integrals.tex
+INPUT ./partial-diff-equations.tex
+INPUT ./partial-diff-equations.tex
+INPUT partial-diff-equations.tex
 INPUT d:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT c:/Users/danya/.texlive2024/texmf-var/fonts/tfm/lh/lh-t2a/larm0500.tfm
 INPUT d:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
@@ -677,6 +686,10 @@ INPUT d:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT d:/texlive/2024/texmf-dist/fonts/tfm/public/stmaryrd/stmary5.tfm
 INPUT d:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT d:/texlive/2024/texmf-dist/fonts/tfm/public/mathabx/mathx10.tfm
+INPUT ./figures/characteristic-point.PNG
+INPUT ./figures/characteristic-point.PNG
+INPUT ./figures/characteristic-point.PNG
+INPUT ./figures/characteristic-point.PNG
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
