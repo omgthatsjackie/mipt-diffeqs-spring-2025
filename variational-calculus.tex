@@ -1,0 +1,259 @@
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+
+\section{Вариационное исчисление}
+\subsection{Простейшая задача вариационного исчисления}
+Даны функция $F  \in C^1(\mathbb R^3, \mathbb R)$, числа $a, b \in \mathbb{R}$, $a < b$ и числа $A, B \in \mathbb{R}$.
+
+Рассмотрим функционал $I\colon C^1([a, b], \mathbb{R}) \to \mathbb{R}$, определённый следующим образом:
+$$
+    I(x) := \int_a^b F(t, x(t), x'(t)) dt.
+$$
+Также определим множество $M$:
+$$
+    M \coloneq \{x \in C^1([a, b], \mathbb{R}) : x(a) = A, \,x(b) = B\}.
+$$
+
+Будем рассматривать пространство функций $C^1([a, b], \mathbb{R})$, как нормированное пространство.
+Зададим на нём нормы $\norm{x}_0 = \max_{t \in [a, b]} |x(t)|$ и $\norm{x}_1 = \norm{x}_0 + \norm{x'}_0$.
+
+\textbf{Определение.} Точка $\widehat x \in M$ называется \textit{слабым локальным минимумом} функционала $I$, если $\exists \,\varepsilon > 0: \forall x \in M, \,\norm{x -\widehat x}_1 < \varepsilon \Rightarrow I(\widehat x) \le I(x)$.
+
+\textbf{Определение.} Точка $\widehat x \in M$ называется \textit{сильным локальным минимумом}, если вместо $\norm{x}_1$ используется $\norm{x}_0$.
+
+\textbf{Определение.} \textit{Простейшей задачей вариационного исчисления} называется задача нахождения слабых локальных экстремумов функционала $I$.
+
+Для максимумов всё определяется аналогично. Мы будем рассматривать задачи на минимизацию.
+
+\textbf{Утверждение.} Если $\widehat x$ --- сильный локальный минимум, то он также является слабым. Доказывается тривиально.
+
+Положим
+\[
+    \mathring C^1[a, b] := \{x \in C^1[a, b]: x(a) = x(b) = 0\}.
+\]
+Тогда множество $M$ замкнуто относительно прибавления функций из $\mathring C^1[a, b]$.
+
+Положим для $\widehat x \in M$, $\widehat x \in C^2$, $\eta \in \mathring C^1[a, b]$ функцию
+\[
+    \phi(\mu) := I(\widehat x + \mu \eta) = \int_a^b F(t, \widehat x(t) + \mu \eta(t), \widehat x'(t) + \mu \eta'(t)) dt.
+\]
+Продифференцируем её:
+\[
+    \phi'(\mu)|_{\mu = 0} = \int_a^b \left( \frac{\partial F}{\partial x}(t, \widehat x(t), \widehat x'(t)) \eta(t) + \frac{\partial F}{\partial x'}(t, \widehat x(t), \widehat x'(t)) \eta'(t) \right) dt =
+\]
+Проинтегрируем по частям:
+\[
+    = \int_a^b \frac{\partial F}{\partial x}(t, \widehat x(t), \widehat x'(t)) \eta(t) dt + \frac{\partial F}{\partial x'}(\dots) \eta(t) \big|_a^b - \int_a^b \frac{d}{dt} \frac{\partial F}{\partial x'}(\dots) \eta(t) dt =
+\]
+Второе слагаемое рано нулю, так как $\eta(a) = \eta(b) = 0$
+\[
+    = \int_a^b \left(\frac{\partial F}{\partial x}(\dots) - \frac{d}{dt} \frac{\partial F}{\partial x'}(\dots) \right) \eta(t) dt.
+\]
+Таким образом, если $\widehat x$ является слабым локальным минимумом, то 0 --- стационарная точка функции $\phi$.
+
+\textbf{Определение.} $\delta I[\widehat x, \eta] := \phi'(0)$ --- первая вариация функционала $I$ на $\widehat x$.
+
+\textbf{Утверждение.} Если $\widehat x \in M$ --- слабый локальный экстремум, то для любого $\eta \in \mathring C^1[a, b]$ точка $0$ является локальным экстремумом функции $\phi$.
+
+\textbf{Доказательство.} Будем считать, что мы работаем с точкой минимума.
+По определению существует $\varepsilon > 0$, такое что для любого $x \in M$, удовлетворяющему $\norm{x - \widehat x}_1 < \varepsilon$ верно $I(x) \ge I(\widehat x)$.
+
+Тогда для любого $\eta \in \mathring C^1[a, b]$, не равного тождественному нулю, положим $\delta = \frac{\varepsilon}{\norm{\eta}}_1$.
+Возьмём произвольный $\mu \in (-\delta, \delta)$.
+Имеем
+\[
+    \norm{\widehat x + \mu \eta - \widehat x}_1 = \max_{t \in [a, b]} |\mu \eta(t)| + \max_{t \in [a, b]} |\mu \eta'(t)| =
+\]
+\[
+    = |\mu| \left( \max_{t \in [a, b]} |\eta(t)| + \max_{t \in [a, b]} |\eta'(t)| \right) = |\mu| \cdot \norm{\eta}_1 < \varepsilon.
+\]
+Таким образом, мы попали в $\varepsilon$-окрестность функции $\widehat x$, то есть $\phi(\mu) = I(\widehat x + \mu \eta) \ge I(\widehat x) = \phi(0)$.
+
+\QED
+
+\textbf{Утверждение.} (Лемма Лагранжа) Пусть $v \in C[a, b]$, такая что $\forall \eta \in \mathring C^1[a, b]$ выполнено
+\[
+     \int_a^b v(t) \eta(t) dt = 0.
+\]
+Тогда $v(t) \equiv 0$.
+
+\textbf{Доказательство.} От противного: допустим, что существует $\tilde \tau \in [a, b]$, такое что $v(\tilde \tau) > 0$.
+Тогда существует $\tau \in (a, b)$, такое что $v(\tau) > 0$ из непрерывности.
+Отсюда существует $\varepsilon > 0$, такой что $(\tau - \varepsilon, \tau + \varepsilon) \subset [a, b]$ и $v(t) > \frac{v(\tau)}{2}$ для $t \in (\tau - \varepsilon, \tau + \varepsilon)$.
+
+Теперь построим гладкую функцию, принимающую положительные значения на $T := (\tau - \varepsilon, \tau + \varepsilon)$ и ноль вне этого интервала.
+В частности,
+\[
+    \eta(t) :=
+    \begin{cases}
+        (t - (\tau - \varepsilon))^2 (t - (\tau + \varepsilon))^2, & t \in T \\
+        0, & \text{иначе}
+    \end{cases}.
+\]
+Отсюда по условию
+\[
+    0 = \int_a^b v(t) \eta(t) dt = \int_T v(t) \eta(t) dt.
+\]
+Противоречие, так как мы взяли интеграл по непустому интервалу произведения двух положительных функций.
+
+\QED
+
+\textbf{Теорема.} Пусть $F \in C^2$, $\widehat x \in M$, $\widehat x \in C^2$ --- слабый локальный экстремум.
+Тогда $\widehat x$ является решением уравнения Эйлера
+\[
+    \frac{\partial F}{\partial x} (t, x, x') - \frac{d}{dt} \frac{\partial F}{\partial x'} (t, x, x') = 0.
+\]
+
+\textbf{Доказательство.} Поскольку $\widehat x$ является слабым локальным экстремумом, по утверждению для любой $\eta \in \mathring C^1[a, b]$ точка $0$ является локальным экстремумом функции $\phi$, то есть $\phi'(0) = 0$.
+Выражение для $\phi'(0)$ мы уже писали выше --- теперь заметим, что по утверждению про локальный экстремум $\phi$ получаем $\phi'(0) = 0$, а по лемме Лагранжа ---
+\[
+    \frac{\partial F}{\partial x} (t, \widehat x, \widehat x'(t)) - \frac{d}{dt} \frac{\partial F}{\partial x'} (t, \widehat x, \widehat x'(t)) \equiv 0.
+\]
+Следовательно, $\widehat x$ является решением уравнения Эйлера.
+
+\QED
+
+\textbf{Замечание.} Повсюду мы говорили, что $\widehat x \in C^2$.
+Но теоретически экстремумом может являться и функция из $C^1$.
+Пусть $F, \widehat x \in C^1$.
+Если $\widehat x$ --- слабый локальный экстремум, то функция
+\[
+    t \mapsto \frac{\partial F}{\partial x'} (t, \widehat x(t), \widehat x'(t))
+\]
+непрерывно дифференцируема, и $\widehat x$ является решением уравнения Эйлера.
+Иными словами, прошлая теорема верна и в этом случае, но доказывать мы это не будем.
+
+\textbf{Определение.} Решение уравнения Эйлера называется \textit{экстремальным}.
+Тогда прошлую теорему можно переформулировать, как ``слабый локальный экстремум является экстремальным``.
+
+% \subsection{Задача о брахистохроне}
+% Людям с острой непереносимостью физики рекомендуется пропустить.
+% Остальным: для понимания достаточно школьных знаний.
+
+% Пусть у нас есть две материальные точки $A$ и $B$, причём $A$ выше $B$.
+% Мы хотим провести между ними кривую, такую что материальная точка, двигаясь по ней исключительно под силой тяжести, достигнет точку $B$ за минимальное время.
+% Эта кривая называется \textit{брахистрохоной}.
+
+% % \begin{figure}[ht]
+% %     \centering
+% %     \incfig{811}{0.5\linewidth}
+% % \end{figure}
+
+% Запишем закон сохранения энергии:
+% \[
+%     mg \cdot y(x) = \frac{m v^2(x)}{2}.
+% \]
+% Тогда
+% \[
+%     v(x) = \sqrt {2g \cdot y(x)}.
+% \]
+% Запишем скорость, как производную от пройденного пути $s$:
+% \[
+%     v(x) = \frac{ds}{dt} = \frac{ds}{dx} \cdot \frac{dx}{dt} = \frac{d}{dx} \int_0^x \sqrt{ 1 + (y'(\xi))^2 } d\xi \cdot \frac{dx}{dt} = \sqrt{1 + (y'(x))^2} \cdot \frac{dx}{dt}.
+% \]
+% Выразим $dt$:
+% \[
+%     dt = \frac{\sqrt{1 + (y'(x))^2}}{\sqrt{2g \cdot y(x)}} dx,
+% \]
+% то есть
+% \[
+%     t = \int_0^b \sqrt{ \frac{1 + (y'(x))^2}{2g \cdot y(x)}} \cdot dx.
+% \]
+% Итак, итак, простейшая вариационная задача.
+% Выкинем лишние константы:
+% \[
+%     t(y) = \int_0^b \sqrt{ \frac{1 + (y')^2}{y}} dx \to \min.
+% \]
+% Здесь $y(0) = 0$, $y(b) = B$.
+% Уравнением Эйлера будем
+% \[
+%     \sqrt{1 + (y')^2} \left( -\frac{1}{2} \cdot \frac{1}{(\sqrt y)^3} \right) - \frac{d}{dx} \cdot \frac{2y'}{\sqrt y \cdot 2 \cdot \sqrt{1 + (y')^2}} = 0.
+% \]
+% Заметим, что это то же самое, что
+% \[
+%     \frac{d}{dx} \left( \sqrt{\frac{1 + (y')^2}{y}} - \frac{(y')^2}{\sqrt{y (1 + (y')^2)}} \right) = 0.
+% \]
+% То есть $y(y + (y')^2) = c_1$ --- константа.
+% Сделаем замену: $y'(x(\tau)) = \ctg(\tau)$.
+% Тогда 
+% \[
+%     y(x(\tau)) = c_1 \sin^2(\tau) = \frac{1}{2} c_1 (1 - \cos(2\tau)).
+% \]
+% Теперь
+% \[
+%     dx = \frac{dy}{y'} = \frac{2c_1 \sin(\tau) \cos(\tau)}{\ctg(\tau)} d\tau = c_1(1 - \cos(2\tau)) d\tau.
+% \]
+% Значит,
+% \[
+%     x(\tau) = c_2 + \frac{c_1}{2} (2\tau - \sin(2\tau)).
+% \]
+% Теперь остаётся проверить, какие из них являются экстремумами, делается напрямую.
+
+\setcounter{equation}{0}
+\subsection{Задача со свободным концом}
+Пусть $F: \mathbb R^3 \to \mathbb R \in C^2$, числа $a, b, A \in \mathbb R$ фиксированы.
+Рассмотрим функционал
+\begin{equation}
+    I(x) = \int_a^b F(t, x(t), x'(t)) dt
+\end{equation}
+при условии $x(a) = A$.
+
+Мы хотим найти экстремумы $I: M \to \mathbb R$, где $M = \{x \in C^1[a, b]: x(a) = A\}$.
+
+\textbf{Теорема.} Пусть $\widehat x \in M$, $\widehat x \in C^2$ --- решение (1), то есть слабый локальный экстремум $I$.
+Тогда $\widehat x$ является решением уравнения Эйлера
+\[
+    \frac{\partial F}{\partial x}(t, x, x') - \frac{d}{dt} \frac{\partial F}{\partial x'}(t, x, x') = 0,
+\]
+а также
+\begin{equation}
+    \frac{\partial F}{\partial x'}(b, \widehat x(b), \widehat x'(b)) = 0.
+\end{equation}
+
+\textbf{Доказательство.} Зафиксируем допустимое приращение $\eta \in C^1[a, b]$, $\eta(a) = 0$.
+Положим
+\[
+    \Phi(\alpha) := I(\widehat x + \alpha \eta) = \int_a^b F(t, \widehat x(t) + \alpha \eta(t), \widehat x'(t) + \alpha \eta'(t)) dt.
+\]
+Найдём производную в нуле:
+\[
+    \Phi'(0) = \int_a^b \left( \frac{\partial F}{\partial x}(t, \widehat x(t), \widehat x'(t)) \eta(t) + \frac{\partial F}{\partial x'} (t, \widehat x(t), \widehat x'(t)) \eta'(t) \right) dt =
+\]
+Проинтегрируем по частям
+\[
+    = \int_a^b \frac{\partial F}{\partial x}(\dots)\eta(t) dt + \frac{\partial F}{\partial x'} (t, \widehat x(t), \widehat x'(t)) \eta(t) \bigg|_{t=a}^{t=b} - \int_a^b \frac{d}{dt} \frac{\partial F}{\partial x'}(\dots) \eta(t) dt =
+\]
+\[
+    = \int_a^b \left( \frac{\partial F}{\partial x}(\dots) - \frac{d}{dt} \frac{\partial F}{\partial x'}(\dots) \right) \eta(t) dt + \frac{\partial F}{\partial x'}(b, \widehat x(b), \widehat x'(b)) \eta(b),
+\]
+так как $\eta(a) = 0$.
+
+Как доказывалось в простейшей задаче вариационного исчисления, $0$ является локальным экстремумом функции $\Phi$, то есть $\Phi'(0) = 0$.
+Таким образом, выражение выше равно нулю.
+
+Подставим в выражение выше функцию $\eta$ с $\eta(b) = 0$, тогда останется только
+\[
+    \int_a^b \left( \frac{\partial F}{\partial x}(t, \widehat x(t), \widehat x'(t)) - \frac{d}{dt} \frac{\partial F}{\partial x'}(t, \widehat x(t), \widehat x'(t)) \right) \eta(t) dt = 0.
+\]
+По лемме Лагранжа получаем уравнение Эйлера.
+Теперь остаётся только 
+\[
+    \frac{\partial F}{\partial x'} (b, \widehat x(b), \widehat x'(b)) \eta(b) = 0
+\]
+для всех функций $\eta$, то есть
+\[
+    \frac{\partial F}{\partial x'} (b, \widehat x(b), \widehat x'(b))  \equiv 0.
+\]
+
+\QED
+
+\textbf{Замечание.} Опять же если $F, \widehat x \in C^1$, то функция
+\[
+    \frac{\partial F}{\partial x'}(t, \widehat x(t), \widehat x'(t))
+\]
+непрерывно дифференцируема по $t$, $\widehat x$ является решением уравнения Эйлера и выполняется (2).
+
+\textbf{Замечание 2.} Можно рассматривать и задачу с другим свободным концом, тогда (2) будет иметь вид
+\[
+    \frac{\partial F}{\partial x'}(a, \widehat x(a), \widehat x'(a)) = 0.
+\]
+А если оба конца свободны, то условие выше и условие (2) выполняются одновременно.

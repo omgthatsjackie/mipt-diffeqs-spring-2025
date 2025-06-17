@@ -1,0 +1,82 @@
+\subsection{Изопериметрическая задача}
+
+Даны функции $F, G \in C^2(\mathbb{R}^3, \mathbb{R})$ и числа $a,b, A, B, l$, причём $a < b$.
+
+Изопериметрическая задача:
+\[
+\begin{cases}
+    
+I(x) = \int_a^b F(t, x', x') dt \to \min\\
+
+K(x) = \int_a^b G(t, x, x') dt = l\\
+\end{cases}
+\]
+
+$M = \{ x \in C^1([a,b], \mathbb{R}): x(a) = A, x(b) = B, K(x) = l\}$
+
+\textbf{Определение.} $\widehat x$ называется \textit{слабым минимумом}, если $\widehat x \in M$ и $\exists \varepsilon > 0 : \forall x \in M : \norm{x - \widehat{x}}_1 < \varepsilon$ $I(x) \geq I(\widehat x)$
+(аналогично определяется слабый максимум).
+
+\textbf{Определение.} $L(t,x,x', \lambda) \coloneq F(t,x,x') + \lambda G(t,x,x')$ называется \textit{интегрантом}.
+
+\textbf{Теорема.} (Необходимое условие слабого минимума) $\widehat x \in C^2([a,b], \mathbb{R})$, $\widehat x$ -- слабый минимум(максимум), $\exists \widehat \eta \in C^1([a,b], \mathbb{R}): \delta K[\widehat x, \widehat \eta] \ne 0$. Тогда $\exists \lambda \in \mathbb{R}: \widehat x$ является решением уравнения Эйлера:
+
+\[
+\frac{\partial L}{\partial x} - \frac{d}{dt}\frac{\partial L}{\partial x'} = 0
+\]
+
+\textbf{Доказательство.} 
+
+Выберем $\eta \in  \mathring C^1[a, b]$ и зададим функции $\phi(\alpha, \beta) = I(\widehat x + \alpha \eta + \beta \widehat \eta), \psi(\alpha, \beta) = K(\widehat x + \alpha \eta + \beta \widehat \eta), \alpha, \beta \in \mathbb{R}$.
+Посчитаем частные производные в нуле, это пригодится нам позже:
+\begin{center}
+$\phi(0,0) = I(\widehat x)$
+
+$\frac{\partial \phi}{\partial \alpha}(0,0) = \delta I[\widehat x, \eta]$
+
+$\frac{\partial \phi}{\partial \beta}(0,0) = \delta I[\widehat x, \widehat \eta]$
+
+$\psi(0,0) = K(\widehat x) = l$
+
+$\frac{\partial \psi}{\partial \alpha}(0,0) = \delta K[\widehat x, \eta]$
+
+$\frac{\partial \psi}{\partial \alpha}(0,0) = \delta K[\widehat x, \widehat \eta]$
+\end{center}
+
+Рассмотрим $\det \frac{\partial (\phi, \psi)}{(\alpha, \beta)}(0,0)$ и докажем, что он равен нулю. Для этого предположим противное:
+пусть $\det \frac{\partial (\phi, \psi)}{(\alpha, \beta)}(0,0) \ne 0$. Тогда можем воспользоваться теоремой об обратном отображении и получить, что $\exists \gamma \in \mathbb{R}, \exists \tilde \alpha, \tilde \beta \colon (J(\widehat x) - \gamma, J(\widehat x) + \gamma) \to \mathbb{R}^2$:
+
+\begin{center}
+    $\phi(\tilde{\alpha}(s), \tilde{\beta}(s)) \equiv s, s \in (J(\widehat x) - \gamma, J(\widehat x) + \gamma)$\\
+    $\psi(\tilde{\alpha}(s), \tilde{\beta}(s)) \equiv l$\\
+    $\tilde{\alpha}(I(\widehat x)) = \tilde{\beta}(J(\widehat x)) = 0$
+\end{center}
+Теперь вспомним, что $\widehat x$ -- слабый минимум, т.е. $\exists \varepsilon > 0: \forall x \in M:  \norm{x - \widehat x}_1 < \varepsilon$ $I(\widehat x) \le I(x)$
+Зададим функцию $x_s = \widehat x + \tilde{\alpha} \eta + \tilde{\beta} \widehat \eta$ (при каждом $s$ это функция от $t$, определенная на $[a,b]$).
+ 
+Уменьшим $\varepsilon$ так, что $\norm{\eta}_1 |\tilde {\alpha}(s)| + \norm{\widehat \eta}_1 |\tilde {\beta}(s)| < \epsilon $ $\forall s \in (I(\widehat x) - \gamma, I(\widehat x) + \gamma)$. По непрерывности $\tilde {\alpha}$ и $\tilde {\beta}$ это можно сделать, причем равенства, которые мы получили из теоремы об обратной функции, будут сохраняться.
+
+\begin{center}
+$\norm{x_s - \widehat x}_1 = \norm{\tilde{\alpha}(s) \eta + \tilde{\beta}(s) \tilde{\eta} } \le |\tilde \alpha (s)| \norm{\eta}_1 + |\tilde \beta (s)| \norm{\tilde {\eta}}_1 < \varepsilon$ \\
+$I(x_s) = I(\widehat x + \tilde{\alpha} \eta + \tilde{\beta} \widehat \eta) = \phi(\tilde \alpha (s), \tilde \beta (s)) = s$
+\end{center}
+Но $s \in (I(\widehat x) - \gamma, I(\widehat x) + \gamma)$, а значит, может оказаться меньше $I(\widehat x)$ при $x \in (I(\widehat x) - \gamma, I(\widehat x))$. То есть $I(x_s) < I(\widehat x)$. Получаем противоречие с минимальностью $I(\widehat x)$.
+
+Значит, $\det \frac{\partial (\phi, \psi)}{(\alpha, \beta)}(0,0) = 0$. Распишем его по определению:
+\begin{center}
+$\frac{\partial \phi}{\partial \alpha}(0,0) \frac{\partial \psi}{\partial \alpha}(0,0) - \frac{\partial \phi}{\partial \beta}(0,0) \frac{\partial \psi}{\partial \alpha}(0,0) = 0$
+\end{center}
+Воспользуемся тем, что выше мы вычислили частные производные в нуле:
+$$
+\delta I[\widehat x, \eta] \delta K[\widehat x, \widehat \eta] - \delta I[\widehat x, \widehat \eta] \delta K[\widehat x, \eta] = 0 \Rightarrow
+\delta I[\widehat x, \eta] + \lambda \delta K[\widehat x, \eta] = 0,
+$$
+где $\lambda = -\frac{\delta I[\widehat x, \widehat \eta]}{\delta K[\widehat x, \widehat \eta]}$ (здесь пользуемся тем, что в условии теоремы мы требовали $\delta K[\widehat{x}, \widehat{\eta}] \ne 0$).
+Перепишем теперь это равенство:
+$$\int_a^b \left(\widehat{\frac{\partial F}{\partial x}} (t) - \frac{d}{dt} \widehat{ \frac{\partial F}{\partial x'}}(t)\right) \eta(t) dt + \lambda \int_a^b \left(\widehat{\frac{\partial G}{\partial x}}(t) - \frac{d}{dt} \widehat{\frac{\partial G}{\partial x'}}(t)\right) \eta(t) dx = 0.$$
+Здесь $\widehat{\frac{\partial F}{\partial x}} (t) \coloneq \frac{\partial F}{\partial x}(t, \widehat{x}(t), \widehat{x}'(t))$, для $G$ аналогично. Тогда по лемме Лагранжа получаем следующее:
+$$
+\widehat{\frac{\partial F}{\partial x}} (t) + \lambda \widehat{\frac{\partial G}{\partial x}}(t) - \frac{d}{dt}\left(\widehat{ \frac{\partial F}{\partial x'}}(t) + \lambda \widehat {\frac{\partial G}{\partial x'}}(t)\right) \equiv 0.$$
+Если расписать это по определению функции $L$, то получим ровно то, что нужно.
+
+\QED

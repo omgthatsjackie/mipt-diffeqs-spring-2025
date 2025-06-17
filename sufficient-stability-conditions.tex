@@ -41,8 +41,6 @@
 \begin{equation}
     x' = Ax.
 \end{equation}
-% Пусть $X(t)$ --- фундаментальная система решений системы (2), такая что $X(0) = I$ (единичная).
-% Она существует, так как можно рассмотреть $n$ задач Коши $x' = Ax$ и $x(0) = e_i$, где $e_i$ --- $i$-ый базисный вектор $\mathbb R^n$.
 Пусть в ЖНФ матрицы $A$ есть жордановы клетки $K_1, \dots, K_m$, причём для каждой клетки $K_j$ её размер равен $k_j$ и ей соответствует собственное число $\lambda_j = \alpha_j + i\beta_j$. Без ограничения общности будем считать, что $\lambda_1, \dots, \lambda_s \in \mathbb C$, при этом им соответствуют сопряжённые числа $\lambda_{s+1} = \overline{\lambda_1}, \dots, \lambda_{2s} = \overline{\lambda_s}$, а $\lambda_{2s+1}, \dots, \lambda_m \in \mathbb R$.
 
 \textbf{Теорема.} 
@@ -59,7 +57,9 @@
 причём $\deg P_j \le k_j - 1$.
 
 \begin{enumerate}
-\item Из условия $\re \lambda_j < 0$ следует, что $|x(t)| \to 0$ при $t \to +\infty$. Пусть $X(t)$ --- ФМР. Так как столбцы $X(t)$ являются решениями, $\|X(t)\| \to 0$ при $t \to +\infty$.
+\item Из условия $\re \lambda_j < 0$ следует, что $|x(t)| \to 0$ при $t \to +\infty$. Пусть $X(t)$ --- ФМР системы (2) такая, что $X(0) = E$.
+Она существует, так как можно рассмотреть $n$ задач Коши $x' = Ax$ и $x(0) = e_i$, где $e_i$ --- $i$-ый базисный вектор стандартного базиса $\mathbb R^n$.
+Так как столбцы $X(t)$ являются решениями, $\|X(t)\| \to 0$ при $t \to +\infty$.
 Тогда $\|X(t)\|$ равномерно ограничена некоторым числом $c > 0$. Кроме того, имеем следующее неравенство:
 \[
     |\phi(t, \xi)| = |X(t) \xi| \le \| X(t) \| \cdot |\xi|.
@@ -86,18 +86,18 @@
 
 \QED
 
-% \subsubsection{Устойчивость нелинейных систем}
-% Пусть $\Omega \subset \mathbb{R}^n$ открыто, $f \in C^1(\Omega, \mathbb{R}^n)$, $\widehat{x} \in \Omega$ --- положение равновесия.
-% Рассмотрим задачу Коши
-% \[
-% \begin{cases}
-%     x' = f(x)\\
-%     x(0) = x_0
-% \end{cases}.
-% \]
-% Пусть $\phi(\cdot, x_0)$ --- её непродолжаемое решение. Обозначим матрицу Якоби $A \coloneq \frac{\partial f}{\partial x}(\widehat{x})$. Пусть $\lambda_1, \dots, \lambda_k$ --- собственные числа матрицы $A$.
+\subsubsection{Устойчивость нелинейных систем}
+Пусть $\Omega \subset \mathbb{R}^n$ открыто, $f \in C^1(\Omega, \mathbb{R}^n)$, $\widehat{x} \in \Omega$ --- положение равновесия.
+Рассмотрим задачу Коши
+\[
+\begin{cases}
+    x' = f(x)\\
+    x(0) = x_0
+\end{cases}.
+\]
+Пусть $\phi(\cdot, x_0)$ --- её непродолжаемое решение. Обозначим матрицу Якоби $A \coloneq \frac{\partial f}{\partial x}(\widehat{x})$. Пусть $\lambda_1, \dots, \lambda_k$ --- собственные числа матрицы $A$.
 
-% \textbf{Теорема.} (Ляпунова) Если все $\re \lambda_j < 0$, то положение равновесия $\widehat{x}$ асимптотически устойчиво.
+\textbf{Теорема.} (Ляпунова) Если все $\re \lambda_j < 0$, то положение равновесия $\widehat{x}$ асимптотически устойчиво.
 
 % \textbf{Замечания.}
 % \begin{enumerate}
@@ -118,57 +118,58 @@
 
 % \end{enumerate}
 
-% Рассмотрим систему
-% \begin{equation}
-%     x' = f(x).
-% \end{equation}
+Рассмотрим систему
+\setcounter{equation}{0}
+\begin{equation}
+    x' = f(x).
+\end{equation}
 
-% \textbf{Определение.} Пусть $\Pi \subset \Omega$ открыто, а функция $v \in C^1(\Pi, \mathbb{R})$. Тогда \textit{производной в силу системы (1)} называется функция
-% \[
-%   \left.\frac{dv}{dt}\right|_{(1)}(x) \coloneq \left< \frac{\partial v}{\partial x}(x), f(x) \right> = \sum_{j=1}^n{\frac{\partial v}{\partial x_j}(x)f_j(x)}.
-% \]
-% Пусть $x(t)$ --- решение системы (1). Тогда
-% \[
-%     \frac{dv}{dt}(x(t)) \equiv \left< \frac{\partial v}{\partial x}(x(t)), x'(t) \right> \equiv \left< \frac{\partial v}{\partial x}(x(t)), f(x(t)) \right> \equiv \left.\frac{dv}{dt}\right|_{(1)}(x(t)).
-% \]
+\textbf{Определение.} Пусть $\Pi \subset \Omega$ открыто, а функция $v \in C^1(\Pi, \mathbb{R})$. Тогда \textit{производной в силу системы (1)} называется функция
+\[
+  \left.\frac{dv}{dt}\right|_{(1)}(x) \coloneq \left< \frac{\partial v}{\partial x}(x), f(x) \right> = \sum_{j=1}^n{\frac{\partial v}{\partial x_j}(x)f_j(x)}.
+\]
+Пусть $x(t)$ --- решение системы (1). Тогда
+\[
+    \frac{dv}{dt}(x(t)) \equiv \left< \frac{\partial v}{\partial x}(x(t)), x'(t) \right> \equiv \left< \frac{\partial v}{\partial x}(x(t)), f(x(t)) \right> \equiv \left.\frac{dv}{dt}\right|_{(1)}(x(t)).
+\]
 
-% \textbf{Определение.} Функция $v$ в следующих двух теоремах называется \textit{функцией Ляпунова}.
+\textbf{Определение.} Функция $v$ в следующих двух теоремах называется \textit{функцией Ляпунова}.
 
-% \textbf{Теорема.} (Ляпунова об устойчивости) Пусть существуют $\varepsilon > 0$ и функция $v \in C^1(O(\widehat{x}, \varepsilon), \mathbb R)$ такие, что:
-% \begin{enumerate}
-%   \item $v(\widehat{x}) = 0$
-%   \item $v(x) > 0$ при $x \ne \widehat{x}$
-%   \item для всех $x$ выполнено $\left.\frac{dv}{dt}\right|_{(1)}(x) \le 0$.
-% \end{enumerate}
-% Тогда $\widehat{x}$ устойчиво по Ляпунову.
+\textbf{Теорема.} (Ляпунова об устойчивости) Пусть существуют $\varepsilon > 0$ и функция $v \in C^1(O(\widehat{x}, \varepsilon), \mathbb R)$ такие, что:
+\begin{enumerate}
+  \item $v(\widehat{x}) = 0$
+  \item $v(x) > 0$ при $x \ne \widehat{x}$
+  \item для всех $x$ выполнено $\left.\frac{dv}{dt}\right|_{(1)}(x) \le 0$.
+\end{enumerate}
+Тогда $\widehat{x}$ устойчиво по Ляпунову.
 
-% \textbf{Теорема.} (Ляпунова об асимптотической устойчивости) Пусть существуют $\varepsilon > 0$ и функция $v \in C^1(O(\widehat{x}, \varepsilon), \mathbb R)$ такие, что:
-% \begin{enumerate}
-%   \item выполнены условия 1 и 2 из предыдущей теоремы
-%   \item для всех $x \ne \widehat{x}$ выполнено $\left.\frac{dv}{dt}\right|_{(1)}(x) < 0$.
-% \end{enumerate}
-% Тогда $\widehat{x}$ асимптотически устойчиво.
+\textbf{Теорема.} (Ляпунова об асимптотической устойчивости) Пусть существуют $\varepsilon > 0$ и функция $v \in C^1(O(\widehat{x}, \varepsilon), \mathbb R)$ такие, что:
+\begin{enumerate}
+  \item выполнены условия 1 и 2 из предыдущей теоремы
+  \item для всех $x \ne \widehat{x}$ выполнено $\left.\frac{dv}{dt}\right|_{(1)}(x) < 0$.
+\end{enumerate}
+Тогда $\widehat{x}$ асимптотически устойчиво.
 
-% \textbf{Примеры.}
-% \begin{itemize}
-%   \item Рассмотрим уравнение $x' = -x^3$, $\widehat{x} = 0$. Тогда в качестве функции Ляпунова можно взять $v(x) = x^2$. Тогда для $x \ne 0$ верно следующее:
-%   \[
-%     \left.\frac{dv}{dv}\right|_{(1)}(x) = 2x \cdot (-x^3) = -2x^4 < 0.
-%   \]
-%   Получаем, что выполнены все три условия теоремы Ляпунова об асимптотической устойчивости $\Rightarrow$ $\widehat{x} = 0$ асимптотически устойчиво.
-%   \item Рассмотрим систему 
-%   \[
-%       \begin{cases}
-%           x_1' = -x_2 \\
-%           x_2' = x_1
-%       \end{cases}
-%   \]
-%   и $\widehat{x} = (0, 0)^T$.
-%   Положим $v(x) = x_1^2 + x_2^2$. Тогда $v(0) = 0$ и $v(x) > 0$ при $x \ne 0$.
-%   Найдём производную:
-%   \[
-%       \left.\frac{dv}{dt}\right|_{(1)} (x) = \left< (2x_1, 2x_2)^T, (-x_2, x_1)^T \right> \equiv 0.
-%   \]
-%   Следовательно, по теореме Ляпунова об устойчивости $\widehat{x}$ устойчиво.
-%   Но асимптотической устойчивости нет, так как фазовым портретом этой системы является центр.
-% \end{itemize}
+\textbf{Примеры.}
+\begin{itemize}
+  \item Рассмотрим уравнение $x' = -x^3$, $\widehat{x} = 0$. Тогда в качестве функции Ляпунова можно взять $v(x) = x^2$. Тогда для $x \ne 0$ верно следующее:
+  \[
+    \left.\frac{dv}{dv}\right|_{(1)}(x) = 2x \cdot (-x^3) = -2x^4 < 0.
+  \]
+  Получаем, что выполнены все три условия теоремы Ляпунова об асимптотической устойчивости $\Rightarrow$ $\widehat{x} = 0$ асимптотически устойчиво.
+  \item Рассмотрим систему 
+  \[
+      \begin{cases}
+          x_1' = -x_2 \\
+          x_2' = x_1
+      \end{cases}
+  \]
+  и $\widehat{x} = (0, 0)^T$.
+  Положим $v(x) = x_1^2 + x_2^2$. Тогда $v(0) = 0$ и $v(x) > 0$ при $x \ne 0$.
+  Найдём производную:
+  \[
+      \left.\frac{dv}{dt}\right|_{(1)} (x) = \left< (2x_1, 2x_2)^T, (-x_2, x_1)^T \right> \equiv 0.
+  \]
+  Следовательно, по теореме Ляпунова об устойчивости $\widehat{x}$ устойчиво.
+  Но асимптотической устойчивости нет, так как фазовым портретом этой системы является центр.
+\end{itemize}
